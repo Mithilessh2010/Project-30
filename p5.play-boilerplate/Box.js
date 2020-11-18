@@ -17,9 +17,9 @@ class Box {
     var pos = this.body.position;
     var angle = this.angle;
     console.log(this.body.speed);
-    push();
 
     if (this.speed < 3) {
+      push();
       translate(this.body.position.x, this.body.position.y);
       fill(this.color);
       rotate(angle);
@@ -28,10 +28,10 @@ class Box {
       pop();
     }
     else {
-      push();
       World.remove(world, this.body);
+      push();
       this.visibility = this.visibility - 5;
-      tint(255, this.visibility);
+      // tint(255, this.visibility);
       pop();
     }
 

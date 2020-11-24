@@ -15,22 +15,21 @@ class Box {
   }
   display() {
     var pos = this.body.position;
-    var angle = this.angle;
-    console.log(this.body.speed);
 
-    if (this.speed < 3) {
+    if (this.body.speed < 3) {
+      // console.log("NOT REMOVED - " + this.speed);
       push();
       translate(this.body.position.x, this.body.position.y);
       fill(this.color);
-      rotate(angle);
       rectMode(CENTER);
       rect(0, 0, this.width, this.height);
       pop();
     }
     else {
+      //console.log("REMOVED");
       World.remove(world, this.body);
       push();
-      this.visibility = this.visibility - 5;
+      this.visibility = false; //this.visibility - 5;
       // tint(255, this.visibility);
       pop();
     }
